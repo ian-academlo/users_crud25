@@ -1,6 +1,7 @@
 const express = require("express");
 const db = require("./utils/database"); // no lleva la extensión
 const Users = require("./models/users.model");
+const cors = require("cors");
 require("dotenv").config();
 
 Users;
@@ -21,6 +22,7 @@ db.sync() // si no existe la tabla, la crea. De lo contrario nada.
 const app = express();
 
 app.use(express.json()); // es muy común olvidar este middlewa
+app.use(cors());
 
 //************** CRUD ********************
 
