@@ -1,13 +1,14 @@
 const { Sequelize } = require("sequelize");
+require("dotenv").config();
 
 // configurando una conexión
 
 const db = new Sequelize({
-  host: "localhost",
-  database: "users_db",
-  port: 5432,
-  username: "iannacus",
-  password: "root",
+  host: process.env.DB_HOST,
+  database: process.env.DB_DATABASE,
+  port: process.env.DB_PORT,
+  username: process.env.DB_USERNAME,
+  password: process.env.DB_PASSWORD,
   dialect: "postgres",
 });
 

@@ -1,8 +1,13 @@
 const express = require("express");
 const db = require("./utils/database"); // no lleva la extensión
 const Users = require("./models/users.model");
+require("dotenv").config();
 
 Users;
+
+const PORT = process.env.PORT ?? 8000;
+// * || devuelve el primer verdadero o el ultimo falso
+// * ?? asignar el valor de la derecha cuando el primero es null o undefined
 
 db.authenticate()
   .then(() => {
@@ -128,6 +133,6 @@ app.get("/", (req, res) => {
   res.send("Bienvenido a mi servidor");
 });
 
-app.listen(8000, () => {
-  console.log("Servidor corriendo");
+app.listen(PORT, () => {
+  console.log(`Servidor escuchando en el puerto ${PORT}`);
 });
